@@ -452,11 +452,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\OneDrive\\לימודים\\שנה ג' - תשפ''ו\\סמסטר א'\\פיתוח מערכות אינטרנטיות צד שרת\\מטלות\\Movies-Project\\Movies\\Movies.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\OneDrive\\לימודים\\שנה ג' - תשפ''ו\\סמסטר א'\\פיתוח מערכות אינטרנטיות צד שרת\\עבודת הגשה\\server\\Movies\\Movies.csproj",
       "projectName": "Movies",
-      "projectPath": "C:\\Users\\HP\\OneDrive\\לימודים\\שנה ג' - תשפ''ו\\סמסטר א'\\פיתוח מערכות אינטרנטיות צד שרת\\מטלות\\Movies-Project\\Movies\\Movies.csproj",
+      "projectPath": "C:\\Users\\HP\\OneDrive\\לימודים\\שנה ג' - תשפ''ו\\סמסטר א'\\פיתוח מערכות אינטרנטיות צד שרת\\עבודת הגשה\\server\\Movies\\Movies.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\OneDrive\\לימודים\\שנה ג' - תשפ''ו\\סמסטר א'\\פיתוח מערכות אינטרנטיות צד שרת\\מטלות\\Movies-Project\\Movies\\obj\\",
+      "outputPath": "C:\\Users\\HP\\OneDrive\\לימודים\\שנה ג' - תשפ''ו\\סמסטר א'\\פיתוח מערכות אינטרנטיות צד שרת\\עבודת הגשה\\server\\Movies\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",

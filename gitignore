@@ -3,16 +3,33 @@
 /server/obj/
 /server/.vs/
 /server/.vscode/
+/server/**/*.user
+/server/**/*.suo
+/server/**/*.vsidx
+/server/**/*.db
+/server/**/*.Cache
+
+# Ignore Visual Studio temporary files, build results, and other user-specific files
 *.user
 *.suo
+*.vsidx
+*.db
 
 # ===== CLIENT (Node.js / React / Angular / Vue) =====
 /client/node_modules/
 /client/dist/
 /client/build/
+/client/.env
+/client/.vscode/
 
 # ===== GENERAL =====
 *.log
 *.tmp
 *.DS_Store
 Thumbs.db
+
+# ===== SYSTEM / OS =====
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.swp
