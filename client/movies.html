@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>אתר הסרטים שלי</title>
+  <link rel="stylesheet" href="movies.css">
+
+
+</head>
+<body>
+
+  <nav>
+    <button type="button" data-tab="all">כל הסרטים</button>
+    <button type="button" data-tab="filters">סינון</button>
+    <button type="button" data-tab="wishlist">Wish List</button>
+    <button type="button" data-tab="cast">Cast</button>
+  </nav>
+
+  <!-- כל הסרטים -->
+  <section id="tab-all">
+    <h1>כל הסרטים</h1>
+    <div id="movie-container"></div>
+  </section>
+
+  <!-- סינון -->
+  <section id="tab-filters" style="display:none">
+    <h2>סינון סרטים</h2>
+
+    <div>
+      <label for="minRatingInput">דירוג מינימלי (0–10):</label>
+      <input id="minRatingInput" type="number" min="0" max="10" step="0.1" placeholder="למשל 8.5">
+      <button id="filterByRatingBtn" type="button">סנן לפי דירוג</button>
+    </div>
+
+    <div style="margin-top:12px">
+      <label for="maxDurationInput">משך מקסימלי (בדקות):</label>
+      <input id="maxDurationInput" type="number" min="1" step="1" placeholder="למשל 120">
+      <button id="filterByDurationBtn" type="button">סנן לפי משך</button>
+    </div>
+
+    <h3 style="margin-top:16px">תוצאות סינון</h3>
+    <div id="filter-results"></div>
+  </section>
+
+  <!-- Wish List -->
+  <section id="tab-wishlist" style="display:none">
+    <h2>Wish List</h2>
+    <p>לחיצה על "Add to Wish List" בכרטיסי הסרטים תשלח את הסרט לשרת. כאן ניתן לטעון את כל הרשימה מהשרת:</p>
+    <button id="loadWishlistBtn" type="button">טען מהרשימה בשרת</button>
+    <div id="wishlist-container" style="margin-top:12px"></div>
+  </section>
+
+  <!-- Cast -->
+  <section id="tab-cast" style="display:none">
+    <h2>הוספת שחקן (Cast)</h2>
+    <form id="castForm" novalidate>
+      <div style="margin-bottom:10px">
+        <label for="castName">שם השחקן *</label><br>
+        <input id="castName" required minlength="2" placeholder="לדוגמה: ליאונרדו דיקפריו">
+        <div class="error" data-for="castName"></div>
+      </div>
+      <div style="margin-bottom:10px">
+        <label for="castRole">תפקיד/דמות *</label><br>
+        <input id="castRole" required minlength="2" placeholder="לדוגמה: ג'ק דוסון">
+        <div class="error" data-for="castRole"></div>
+      </div>
+      <div style="margin-bottom:10px">
+        <label for="castYear">שנת הופעה (YYYY)</label><br>
+        <input id="castYear" type="number" min="1900" max="2100" placeholder="לדוגמה: 1997">
+        <div class="error" data-for="castYear"></div>
+      </div>
+      <button type="submit">הוסף שחקן</button>
+    </form>
+
+    <h3 style="margin-top:16px">רשימת Cast</h3>
+    <div id="cast-list"></div>
+  </section>
+
+
+  <!-- movies.js חייב להגדיר: const allMovies = [...] -->
+ <script src="js/functions.js"></script>
+<script src="js/movies.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# ===== SERVER (Visual Studio / ASP.NET Core) =====
+/server/bin/
+/server/obj/
+/server/.vs/
+/server/.vscode/
+*.user
+*.suo
+
+# ===== CLIENT (Node.js / React / Angular / Vue) =====
+/client/node_modules/
+/client/dist/
+/client/build/
+
+# ===== GENERAL =====
+*.log
+*.tmp
+*.DS_Store
+Thumbs.db

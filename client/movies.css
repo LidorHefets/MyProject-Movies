@@ -1,0 +1,67 @@
+
+        /* עיצוב בסיסי */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* העיצוב של הגלריה */
+        #movie-container {
+            display: grid;
+            /* רשת רספונסיבית של כרטיסים */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px; /* רווח בין הכרטיסים */
+        }
+
+        /* העיצוב של כל כרטיס סרט */
+        .movie-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden; /* מבטיח שהתמונה לא תחרוג מהפינות המעוגלות */
+            padding-bottom: 10px; /* נותן מקום לכפתור */
+            display: flex;
+            flex-direction: column; /* מסדר את האלמנטים אחד מתחת לשני */
+            justify-content: space-between; /* דוחף את הכפתור לתחתית */
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 370px; /* גובה אחיד לתמונה */
+            object-fit: cover; /* שומר על יחס התמונה */
+        }
+
+        .movie-card h3 {
+            font-size: 1.2rem;
+            margin: 10px 15px 5px;
+            text-align: center;
+        }
+        
+        .movie-card p {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 0 15px 10px;
+            text-align: center;
+        }
+
+        /* העיצוב של הכפתור */
+        .wishlist-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: block;
+            width: 80%;
+            margin: 10px auto 0; /* ממקם באמצע */
+            transition: background-color 0.2s;
+        }
+
+        .wishlist-btn:hover {
+            background-color: #0056b3;
+        }
