@@ -18,32 +18,52 @@
 
         public static List<Movie> movies = new List<Movie>();
 
-        public bool Insert(Movie m)
+        public static bool Insert(Movie m)
         {
             try
             {
                 foreach (Movie movie in movies)
                 {
-                    if (m.Id == Id)
-                    {
-                        return false; // Movie with the same Id already exists
-
-                    }
+                    if (m.Id == movie.Id)   // היה m.Id == Id
+                        return false;       // כבר קיים סרט עם אותו Id
                 }
-                movies.Add(this);
+                movies.Add(m);               // היה this
                 return true;
-
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
-
-
             }
         }
+    
+        
         public static List<Movie> Read()
         {
             return movies;
         }
+
+        public static List<Movie> ReadByRating(double minRating)
+        {
+            List<Movie> result = new List<Movie>();
+            foreach (var m in movies)
+            {
+                if (m.Rating >= minRating)
+                    result.Add(m);
+            }
+            return result;
+        }
+
+        public static List<Movie> ReadByDuration(int maxMinutes)
+        {
+            List<Movie> result = new List<Movie>();
+            foreach (var m in movies)
+            {
+                if (m.Duration <= maxMinutes)
+                    result.Add(m);
+            }
+            return result;
+        }
+
+
     }
 }
