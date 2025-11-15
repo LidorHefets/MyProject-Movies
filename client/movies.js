@@ -1,4 +1,4 @@
-const AllMovies = [
+export const AllMovies = [
     {
       "id": 1,
       "title": "The Shawshank Redemption",
@@ -603,3 +603,5 @@ const AllMovies = [
 
 
 ]
+
+export default AllMovies

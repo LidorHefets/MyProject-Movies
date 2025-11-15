@@ -22,12 +22,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -51,7 +47,8 @@
               "RelativeToolTip": "Properties\\BL\\Movies.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAmwEAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T09:49:34.682Z"
+              "WhenOpened": "2025-11-12T09:49:34.682Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -63,7 +60,12 @@
               "RelativeToolTip": "Properties\\BL\\Cast.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T20:20:46.926Z"
+              "WhenOpened": "2025-11-10T20:20:46.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }
