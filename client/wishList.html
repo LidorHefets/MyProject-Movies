@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
@@ -8,6 +9,12 @@
 </head>
 <body>
   <header class="site-header">
+    
+    <nav>
+      <a href="movies.html" class="nav-link">🎬 סרטים</a>
+      <a href="wishList.html" class="nav-link active">💖 רשימת מועדפים</a>
+      <a href="cast.html" class="nav-link">🧑‍🎤 ניהול שחקנים</a>
+    </nav>
     <h1>Wish List</h1>
     <p>כל הסרטים שסימנת</p>
   </header>
@@ -16,9 +23,6 @@
 
   <footer class="site-footer">@Lidor's movies - my project</footer>
 
-<script type="module">
-  import { initWishPage } from "./functions.js";
-  initWishPage();
-</script>
+  <script type="module" src="./index.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -8,37 +9,32 @@
 </head>
 <body>
   <header class="site-header">
-      <nav>
-    <a href="movies.html" class="nav-link active">🎬 סרטים</a>
-    <a href="wishList.html" class="nav-link">💖 רשימת מועדפים</a>
-  </nav>
+    <nav>
+      <a href="movies.html" class="nav-link active">🎬 סרטים</a> 
+      <a href="wishList.html" class="nav-link">💖 רשימת מועדפים</a>
+      <a href="cast.html" class="nav-link">🧑‍🎤 ניהול שחקנים</a>
+    </nav>
     <h1>ספריית הסרטים</h1>
     <p>תצוגת כרטיסיות </p>
 
     <section class="filters">
-  <label>
-    דירוג מינימלי:
-    <input type="number" id="minRating" min="0" max="10" step="0.1" placeholder="לדוגמה: 8">
-  </label>
-  <label>
-    משך מקסימלי (בדקות):
-    <input type="number" id="maxDuration" min="30" max="300" step="1" placeholder="לדוגמה: 120">
-  </label>
-  <button id="btnFilter">סנן</button>
-  <button id="btnClearFilters">נקה סינון</button>
-</section>
+      <label>
+        דירוג מינימלי:
+        <input type="number" id="minRating" min="0" max="10" step="0.1" placeholder="לדוגמה: 8">
+      </label>
+      <label>
+        משך מקסימלי (בדקות):
+        <input type="number" id="maxDuration" min="30" max="300" step="1" placeholder="לדוגמה: 120">
+      </label>
+      <button id="btnFilter">סנן</button>
+      <button id="btnClearFilters">נקה סינון</button>
+    </section>
   </header>
 
   <main id="cards" class="cards" aria-live="polite"></main>
 
   <footer class="site-footer">@Lidor's movies - my project </footer>
-
-
+  
   <script type="module" src="./index.js"></script>
-  
-  
-
-
-
 </body>
 </html>

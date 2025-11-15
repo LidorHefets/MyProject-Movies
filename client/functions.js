@@ -142,21 +142,21 @@ export function renderWish(root) {
 
 // אתחול דף Wish List (במקום wishList.js)
 export function initWishPage() {
-  document.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("wish");
-    if (!root) return;
-    renderWish(root);
+  // 🔻 אין כאן יותר "DOMContentLoaded" 🔻
+  const root = document.getElementById("wish");
+  if (!root) return;
+  renderWish(root); // <-- קריאה לציור ראשוני
 
-    // הסרה מרשימה
-    root.addEventListener("click", (ev) => {
-      const btn = ev.target.closest(".btn-remove");
-      if (!btn) return;
-      const id = Number(btn.dataset.id);
-      removeFromWish(id);
-      renderWish(root); // ריענון אחרי הסרה
-    });
+  // הסרה מרשימה
+  root.addEventListener("click", (ev) => {
+    const btn = ev.target.closest(".btn-remove");
+    if (!btn) return;
+    const id = Number(btn.dataset.id);
+    removeFromWish(id);
+    renderWish(root); // ריענון אחרי הסרה
   });
 }
+
 
 // ====== סינון סרטים ======
 
@@ -172,8 +172,6 @@ export function filterByDuration(movies, maxDuration) {
   return movies.filter((m) => m.duration <= maxDuration);
 }
 
-// ====== אתחול דף הסרטים (movies.html) ======
-// מקבל את מערך הסרטים (כדי לא לתלות את functions.js ב-movies.js)
 
 
 // ====== אתחול דף הסרטים (movies.html) ======
@@ -229,4 +227,116 @@ export function initMoviesPage(movies) {
       btn.setAttribute("aria-pressed", "true");
     }
   });
+}
+
+
+// ===================================
+// ====== ניהול שחקנים (Cast) ======
+// ===================================
+
+const CAST_KEY = "castMembers";
+
+// ====== Cast API (localStorage) ======
+
+/** מחזיר את רשימת השחקנים מה"שרת" (localStorage) */
+export function getCastList() {
+  try {
+    return JSON.parse(localStorage.getItem(CAST_KEY)) ?? [];
+  } catch {
+    return [];
+  }
+}
+
+/** שומר את הרשימה המלאה בחזרה ל"שרת" */
+function saveCastList(list) {
+  localStorage.setItem(CAST_KEY, JSON.stringify(list));
+}
+
+/** מוסיף שחקן חדש לרשימה */
+export function addCastMember(member) {
+  const list = getCastList();
+  list.push(member);
+  saveCastList(list);
+}
+
+// ====== Cast Rendering ======
+
+/** יוצר HTML עבור כרטיס שחקן בודד */
+function createCastCard(member) {
+  const photo = member.photoUrl || `https://via.placeholder.com/200x300.png?text=${encodeURIComponent(member.name)}`;
+  
+  return `
+    <article class="card cast-card" aria-label="${member.name}">
+      <img class="poster" src="${photo}" alt="תמונה של ${member.name}">
+      <div class="content">
+        <h3 class="cast-name">${member.name}</h3>
+        ${member.character ? `<p class="cast-char">דמות: ${member.character}</p>` : ''}
+      </div>
+    </article>
+  `;
+}
+
+/** מרנדר את רשימת השחקנים לתוך ה-DOM */
+function renderCastList(rootElement) {
+  const list = getCastList();
+  if (!rootElement) return;
+  
+  if (list.length === 0) {
+    rootElement.innerHTML = `<div class="empty">אין שחקנים ברשימה.</div>`;
+  } else {
+    rootElement.innerHTML = list.map(createCastCard).reverse().join("");
+  }
+}
+
+// ====== אתחול עמוד השחקנים (cast.html) ======
+// (בדיוק כמו initMoviesPage, אבל עבור העמוד השני)
+export function initCastPage() {
+  // 🔻 חשוב: אין כאן "DOMContentLoaded"
+  const form = document.getElementById("formAddCast");
+  const errorDiv = document.getElementById("formError");
+  const listRoot = document.getElementById("castList");
+
+  // 1. רינדור ראשוני של הרשימה הקיימת
+  if (listRoot) {
+    renderCastList(listRoot);
+  }
+
+  // 2. האזנה לאירוע שליחת הטופס
+  if (form) {
+    form.addEventListener("submit", (ev) => {
+      ev.preventDefault();
+      
+      const nameInput = document.getElementById("castName");
+      const photoUrlInput = document.getElementById("castPhotoUrl");
+      const characterInput = document.getElementById("castCharacter");
+
+      const name = nameInput.value.trim();
+      const photoUrl = photoUrlInput.value.trim();
+      const character = characterInput.value.trim();
+
+      // --- ולידציה ---
+      if (name === "") {
+        errorDiv.textContent = "שדה 'שם מלא' הוא שדה חובה.";
+        nameInput.focus();
+        return;
+      }
+
+      const newMember = {
+        id: Date.now(),
+        name: name,
+        photoUrl: photoUrl,
+        character: character,
+      };
+
+      addCastMember(newMember);
+
+      errorDiv.textContent = "";
+      form.reset();
+      
+      // רינדור מחדש
+      renderCastList(listRoot);
+      
+      nameInput.focus();
+    });
+  }
 }
