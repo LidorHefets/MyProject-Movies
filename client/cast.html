@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ניהול שחקנים</title>
+  <link rel="stylesheet" href="./movies.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a href="movies.html" class="nav-link">🎬 סרטים</a>
+      <a href="wishList.html" class="nav-link">💖 רשימת מועדפים</a>
+      <a href="cast.html" class="nav-link active">🧑‍🎤 ניהול שחקנים</a>
+    </nav>
+    <h1>ניהול שחקנים</h1>
+  </header>
+
+  <main>
+    <section class="form-cast-container">
+      <h2>הוספת שחקן חדש</h2>
+      <form id="formAddCast" class="form-cast" novalidate>
+        <div class="form-group">
+          <label for="castName">שם מלא:</label>
+          <input type="text" id="castName" />
+        </div>
+        <div class="form-group">
+          <label for="castPhotoUrl">קישור לתמונה (URL):</label>
+          <input type="url" id="castPhotoUrl" placeholder="https..."/>
+        </div>
+        <div class="form-group">
+          <label for="castCharacter">שם דמות:</label>
+          <input type="text" id="castCharacter" />
+        </div>
+        
+        <div id="formError" class="form-error" aria-live="polite"></div>
+        
+        <button type="submit">הוסף שחקן</button>
+      </form>
+    </section>
+
+    <hr />
+
+    <section class="cast-list-container">
+      <h2>צוות שחקנים קיים</h2>
+      <div id="castList" class="cards" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">@Lidor's movies - my project</footer>
+
+  <script type="module" src="./index.js"></script>
+</body>
+</html>

@@ -42,24 +42,24 @@
             return movies;
         }
 
-        public static List<Movie> ReadByRating(double minRating)
+        public static List<Movie> ReadByRating(double rating)
         {
             List<Movie> result = new List<Movie>();
-            foreach (var m in movies)
+            foreach (Movie movie in movies)
             {
-                if (m.Rating >= minRating)
-                    result.Add(m);
+                if (movie.Rating >= rating)
+                    result.Add(movie);
             }
             return result;
         }
 
-        public static List<Movie> ReadByDuration(int maxMinutes)
+        public static List<Movie> ReadByDuration(int duration)
         {
             List<Movie> result = new List<Movie>();
-            foreach (var m in movies)
+            foreach (Movie movie in movies)
             {
-                if (m.Duration <= maxMinutes)
-                    result.Add(m);
+                if (movie.Duration <= duration)
+                    result.Add(movie);
             }
             return result;
         }

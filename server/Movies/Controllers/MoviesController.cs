@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Movies.Properties.BL;
+using System.Linq.Expressions;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -35,22 +36,33 @@ namespace Movies.Controllers
         }
 
         // GET api/movies/rating/8.5
-        [HttpGet("rating/{minRating}")]
-        public IActionResult GetMoviesByRating(double minRating)
+        [HttpGet("rating")]
+        public IActionResult GetMoviesByRating(double rating)
         {
-            var list = Movie.ReadByRating(minRating);
-            return Ok(list);
+            try
+            {
+                return Ok(Movie.ReadByRating(rating));
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/movies/duration?maxMinutes=120
         [HttpGet("duration")]
-        public IActionResult GetByDuration([FromQuery] int maxMinutes)
+        public IActionResult GetByDuration([FromQuery] int duration)
         {
-            if (maxMinutes < 0)
-                return BadRequest("maxMinutes must be non-negative.");
+            try
+            {
+                return Ok(Movie.ReadByRating(duration));
+            }
+            catch (Exception ex)
+            {
 
-            var list = Movie.ReadByDuration(maxMinutes);
-            return Ok(list);
+                return BadRequest(ex.Message);
+            }
         }
 
     }
